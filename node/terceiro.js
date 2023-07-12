@@ -48,7 +48,7 @@ const server = http.createServer((req, res) => {
   res.end(arquivo);
 });
 
-server.listen(3000, 'localhost', () => {
+server.listen(3001, 'localhost', () => {
   console.log('Servidor em execução em http://localhost:3000/');
 });
 
