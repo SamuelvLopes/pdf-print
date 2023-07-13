@@ -4,12 +4,15 @@ const puppeteer = require('puppeteer');
 
 const server = http.createServer((req, res) => {
    
-    if(req.url=='/favicon.ico' || req.url=='/' ){
+    if(req.url=='/favicon.ico' || req.url=='/'){
         
         res.end('error');
         return 0;
     }  
     let linkhtml = req.url.slice(1);
+    const regex = /^(https?:\/\/)?[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+
+    console.log(regex.test(linkhtml));
     console.log(linkhtml);
     let arquivo = 'anexos/'+performance.now()+'documento.pdf';
   res.statusCode = 200;
