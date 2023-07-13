@@ -14,7 +14,8 @@ const server = http.createServer((req, res) => {
 
     console.log(regex.test(linkhtml));
     console.log(linkhtml);
-    let arquivo = 'anexos/'+performance.now()+'documento.pdf';
+    let arq =performance.now()+'documento.pdf';
+    let arquivo = 'anexos/'+arq;
   res.statusCode = 200;
   (async () => {
     // Iniciar o Puppeteer
@@ -52,12 +53,25 @@ const server = http.createServer((req, res) => {
     await browser.close();
   })();
 
-  res.end(arquivo);
+  res.end(arq);
   
 });
 
-server.listen(3000, 'ec2-13-58-187-250.us-east-2.compute.amazonaws.com', () => {
+server.listen(3000, 'localhost', () => {
   console.log('Servidor em execução em http://ec2-3-22-81-96.us-east-2.compute.amazonaws.com:3000/');
+});
+
+
+const express = require('express');
+const app = express();
+const path = require('path');
+
+const PORT = 3001; // Porta que o servidor irá escutar
+
+app.use(express.static(path.join(__dirname, 'anexos')));
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
 
 
