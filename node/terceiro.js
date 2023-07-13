@@ -3,10 +3,10 @@ const http = require('http');
 const puppeteer = require('puppeteer');
 
 const server = http.createServer((req, res) => {
-    try{  
+   
     if(req.url=='/favicon.ico' || req.url=='/' ){
         
-        res.end('d');
+        res.end('error');
         return 0;
     }  
     let linkhtml = req.url.slice(1);
@@ -25,10 +25,13 @@ const server = http.createServer((req, res) => {
       left: '10mm',
       right: '10mm'
     };
-  
+  try{
     // Navegar para a URL desejada
     await page.goto(linkhtml);
-  
+  }catch(error){
+    res.end('error');
+    return 0;
+  }
     // Capturar o PDF com margens definidas
     const pdfBuffer = await page.pdf({
       format: 'A4',
@@ -46,7 +49,7 @@ const server = http.createServer((req, res) => {
   })();
 
   res.end(arquivo);
-  }catch(error){}
+  
 });
 
 server.listen(3000, 'ec2-3-15-0-99.us-east-2.compute.amazonaws.com', () => {
