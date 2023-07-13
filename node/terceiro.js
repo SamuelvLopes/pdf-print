@@ -29,6 +29,7 @@ const server = http.createServer((req, res) => {
     // Navegar para a URL desejada
     await page.goto(linkhtml);
   }catch(error){
+    console.log('error');
     res.end('error');
     return 0;
   }
