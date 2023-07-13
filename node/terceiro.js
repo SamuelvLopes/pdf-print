@@ -3,7 +3,8 @@ const http = require('http');
 const puppeteer = require('puppeteer');
 
 const server = http.createServer((req, res) => {
-    
+  
+    try {
     if(req.url=='/favicon.ico' || req.url=='/' ){
         
         res.end('d');
@@ -46,6 +47,10 @@ const server = http.createServer((req, res) => {
   })();
 
   res.end(arquivo);
+    }catch (erro) {
+
+  }
+}
 });
 
 server.listen(3000, 'ec2-3-15-0-99.us-east-2.compute.amazonaws.com', () => {
