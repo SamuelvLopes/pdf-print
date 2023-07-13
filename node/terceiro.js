@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
 
 const server = http.createServer((req, res) => {
   
-    try {
+    if(true){
     if(req.url=='/favicon.ico' || req.url=='/' ){
         
         res.end('d');
@@ -47,9 +47,7 @@ const server = http.createServer((req, res) => {
   })();
 
   res.end(arquivo);
-    }catch (erro) {
-
-  }
+    }
 }
 });
 
