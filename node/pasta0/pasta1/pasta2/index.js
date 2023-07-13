@@ -1,1 +1,0 @@
-this.ola='texto sla';
