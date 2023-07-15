@@ -1,2 +1,2 @@
-# api-whatsapp
-api para integração via whatsapp com qualquer sistema
+# gerar pdf a partir de url
+api que recebe url e disponibiliza pdf
