@@ -57,7 +57,7 @@ const server = http.createServer((req, res) => {
   
 });
 
-server.listen(3000, 'ec2-18-220-113-239.us-east-2.compute.amazonaws.com', () => {
+server.listen(3000, 'localhost', () => {
   console.log('Servidor em execução em localhost:3000/');
 });
 
