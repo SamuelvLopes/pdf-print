@@ -78,6 +78,7 @@ app.use(express.urlencoded({ extended: false }));
     next();
   });
 
+  app.use(express.static(path.join(__dirname, 'anexos')));
 
   app.listen(porta, () => {
     console.log("servidor rodando na porta " + porta);
