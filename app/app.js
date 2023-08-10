@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const express = require("express");
 const axios = require('axios');
 const puppeteer = require('puppeteer');
+const path = require('path');
 const porta = 1603;
 const app = express();
 app.use(express.json());
