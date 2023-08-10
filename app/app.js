@@ -1,14 +1,14 @@
-
+const porta = 1603;
 const bodyParser = require('body-parser');
 const express = require("express");
 const axios = require('axios');
 const puppeteer = require('puppeteer');
 const path = require('path');
-const porta = 1603;
 const app = express();
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 
 
   app.post("/convert/url-pdf", (req, res, next) => {
@@ -56,7 +56,7 @@ app.use(express.urlencoded({ extended: false }));
         fs.writeFileSync(req.body.arquivo, pdfBuffer);
         
 
-        req.body.TIPO='convert';
+        req.body.tipo='convert';
           console.log(req.body)
         axios.post(req.body.webhook, req.body)
         .then(response => {
