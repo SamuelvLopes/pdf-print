@@ -18,7 +18,10 @@ app.use(express.urlencoded({ extended: false }));
       
       (async () => {
         // Iniciar o Puppeteer
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+          executablePath: '/usr/bin/google-chrome-stable'
+          // outras opções de configuração
+        });
         const page = await browser.newPage();
       
         // Definir as margens do PDF
